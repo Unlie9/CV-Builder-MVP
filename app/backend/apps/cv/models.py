@@ -24,6 +24,9 @@ class Header(BaseModel):
 
   def __str__(self) -> str:
     return self.full_name
+  
+  class Meta:
+    db_table = "header"
 
 
 class CV(BaseModel):
@@ -50,6 +53,10 @@ class CV(BaseModel):
   
   def __repr__(self) -> str:
     return f"Cv of user: {self.user}"
+  
+  class Meta:
+    db_table = "cv"
+    ordering = ['-updated_at']
 
 
 class BodySection(BaseModel):
@@ -70,5 +77,8 @@ class BodySection(BaseModel):
 
   def __str__(self) -> str:
     return self.name
+  
+  class Meta:
+    db_table = "body_section"
 
 
