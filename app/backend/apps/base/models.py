@@ -6,11 +6,11 @@ class BaseModel(models.Model):
 
   '''
 
-  Base model that using for additional information about objects
+  Base model that using for additional information about objects.
 
-  is_active: Shows whether the object is still relevant instead of being deleted
-  created_at: Shows when the object was deleted
-  updated_at: Shows when the object was updated
+    is_active: Shows whether the object is still relevant instead of being deleted.
+    created_at: Shows when the object was delete.
+    updated_at: Shows when the object was updated.
 
   '''
   
