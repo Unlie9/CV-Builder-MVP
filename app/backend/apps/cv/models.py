@@ -80,5 +80,4 @@ class BodySection(BaseModel):
   
   class Meta:
     db_table = "body_section"
-
-
+    ordering = ['created_at']
