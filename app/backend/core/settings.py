@@ -59,8 +59,6 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        # 'DIRS': ['/Users/unlie9/projects/cv-builder/frontend/templates'],
         'DIRS': [os.path.join(BASE_DIR, '../.', 'frontend', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
