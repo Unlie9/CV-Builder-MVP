@@ -12,21 +12,12 @@ def index(request):
     return render(request, 'index.html', {})
 
 
-# class CvBase:
-#     model = CV
-
-class IndexView(generic.View):
-  cv_queryset = CV.objects.all()
+class IndexView(generic.ListView):
+  cv_queryset = CV.objects.select_related('header').prefetch_related('body_sections').all()
   template_name = 'index/index.html'    
 
   def get(self, request, *args, **kwargs):
-     
-    print(request.user)
-  
     context = self.get_context_data()
-
-    for item in context['queryset']:
-       print(item.header.__dict__)
 
     return render(request=request, template_name=self.template_name, context=context)
   

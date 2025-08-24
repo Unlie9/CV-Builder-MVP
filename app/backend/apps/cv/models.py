@@ -71,7 +71,7 @@ class BodySection(BaseModel):
   '''
   
   # icon = ''
-  cv = models.ForeignKey(CV, on_delete=models.CASCADE, null=True, blank=True)
+  cv = models.ForeignKey(CV, on_delete=models.CASCADE, null=True, blank=True, related_name='body_sections')
   name = models.CharField(max_length=32)
   description = models.TextField()
 
