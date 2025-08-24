@@ -1,0 +1,104 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block stylesheets %}
+
+<style>
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.cv-detail-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  height: 700px;
+}
+
+.form-card, .cv-card {
+  width: 100%; 
+  box-sizing: border-box; 
+  height: 100%;
+  
+
+  border-radius: 5px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  
+}
+
+.cv-header {
+  display: flex;
+
+  width: 100%;
+  background-color: #84abef;
+  object-fit: cover;
+  margin-right: 20px;
+
+  align-items: center;
+  height: 180px; 
+
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header-detail-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.header-component {
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+
+.header-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+
+.cv-body {
+  border: none !important;
+  padding: 24px;
+  font-size: 15px;
+  height: 100% auto;
+  margin: 0;
+  background-color: transparent;
+}
+
+.cv-section {
+  margin-top: 15px;
+}
+
+
+</style>
+
+{% endblock stylesheets %}
+
+
+{% block content %}
+<div class="cv-detail-container">
+  <div class="form-card">
+    {% include 'cv_detail/form.html' %}
+  </div>
+
+  <div class="cv-card">
+    {% include 'cv_detail/cv.html' %}
+  </div>
+</div>
+{% endblock content %}
+
+
+
+
