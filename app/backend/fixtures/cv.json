@@ -1,0 +1,57 @@
+[
+	{
+		"model": "cv.header",
+		"pk": 1,
+		"fields": {
+			"full_name": "John Doe",
+			"position": "Software Engineer",
+			"linkedin_url": "https://linkedin.com/in/johndoe",
+			"created_at": "2024-01-01T12:00:00Z",
+			"updated_at": "2024-01-01T12:00:00Z"
+		}
+	},
+	{
+		"model": "cv.cv",
+		"pk": "8b1f9e6c-1a2b-4d6a-8b3f-5f3c3baf9876",
+		"fields": {
+			"filename": "john_doe_cv.pdf",
+			"header": 1,
+			"user": 1,
+			"created_at": "2024-01-01T12:00:00Z",
+			"updated_at": "2024-01-01T12:00:00Z"
+		}
+	},
+	{
+		"model": "cv.bodysection",
+		"pk": 1,
+		"fields": {
+			"cv": "8b1f9e6c-1a2b-4d6a-8b3f-5f3c3baf9876",
+			"name": "Work Experience",
+			"description": "5 years of experience as a backend developer.",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+		}
+	},
+	{
+		"model": "cv.bodysection",
+		"pk": 2,
+		"fields": {
+			"cv": "8b1f9e6c-1a2b-4d6a-8b3f-5f3c3baf9876",
+			"name": "Hard Skills",
+			"description": "Python, Js, SQL, Redis",
+			"created_at": "2024-01-01T12:00:00Z",
+			"updated_at": "2024-01-01T12:00:00Z"
+		}
+	},
+  {
+		"model": "cv.bodysection",
+		"pk": 3,
+		"fields": {
+			"cv": "8b1f9e6c-1a2b-4d6a-8b3f-5f3c3baf9876",
+			"name": "Education",
+			"description": "B.Sc. in Computer Science from XYZ University.",
+			"created_at": "2024-01-01T12:00:00Z",
+			"updated_at": "2024-01-01T12:00:00Z"
+		}
+	}
+]

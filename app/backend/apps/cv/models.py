@@ -41,7 +41,7 @@ class CV(BaseModel):
     
     related models:
       BodySection ManyToOne CV 
-
+      
   '''
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   filename = models.CharField(max_length=48, default="", blank=True, verbose_name='File name')
@@ -71,7 +71,7 @@ class BodySection(BaseModel):
   '''
   
   # icon = ''
-  cv = models.ForeignKey(CV, on_delete=models.CASCADE, null=True, blank=True)
+  cv = models.ForeignKey(CV, on_delete=models.CASCADE, null=True, blank=True, related_name='body_sections')
   name = models.CharField(max_length=32)
   description = models.TextField()
 
@@ -80,5 +80,4 @@ class BodySection(BaseModel):
   
   class Meta:
     db_table = "body_section"
-
-
+    ordering = ['created_at']

@@ -1,0 +1,35 @@
+<div class="cv-card">
+
+  <div class="cv-header">
+    <div class="header-avatar">
+      <img src="https://www.gravatar.com/avatar/HASH" alt="Avatar">
+    </div>
+
+    <div class="header-detail-info">
+      <p class="header-component">{{ object.header.full_name }}</p>
+      <p class="header-component">{{ object.header.position }}</p>
+      <p class="header-component">
+        <a href="{{ object.header.linkedin_url }}" target="_blank">{{ object.header.linkedin_url }}</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="cv-body">
+    {% for body_section in object.body_sections.all %}
+     
+      <div class="cv-section">
+
+        <div class="title">
+            <h2>{{ body_section }}</h2>
+        </div>
+
+        <div class="body">
+            {{ body_section.description }}
+        </div>
+
+      </div>
+
+
+    {% endfor %}
+  </div>
+</div>
