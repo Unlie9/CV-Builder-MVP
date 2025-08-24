@@ -41,7 +41,7 @@ class CV(BaseModel):
     
     related models:
       BodySection ManyToOne CV 
-
+      
   '''
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   filename = models.CharField(max_length=48, default="", blank=True, verbose_name='File name')
