@@ -49,7 +49,7 @@
 {% block content %}
 <div class="cv-container">
   {% for cv in queryset %}
-  <a class="cv-detail-link" href="#">
+  <a class="cv-detail-link" href="{% url 'cv:cv-detail' cv.id %}">
     <div class="cv-card">
       <div class="cv-title">{{ cv.filename }}</div>
       <div class="cv-meta text-center">{{ cv.header.full_name }}</div>

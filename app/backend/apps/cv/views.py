@@ -44,3 +44,4 @@ class IndexView(generic.View):
 class CvDetailView(generic.DetailView):
   model = CV
   template_name = 'cv_detail/detail.html'
+
