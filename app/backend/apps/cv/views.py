@@ -40,3 +40,7 @@ class IndexView(generic.View):
   def get_queryset(self):
     return self.cv_queryset 
   
+
+class CvDetailView(generic.DetailView):
+  model = CV
+  template_name = 'cv_detail/detail.html'
