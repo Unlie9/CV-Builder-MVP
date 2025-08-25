@@ -1,6 +1,5 @@
 
-from rest_framework.routers import DefaultRouter
-from django.urls import path, include
+from django.urls import path
 
 from apps.audit.views import (
   RequestLogListView, 
