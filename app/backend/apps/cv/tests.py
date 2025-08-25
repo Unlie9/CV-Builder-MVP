@@ -32,14 +32,6 @@ class CVViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
-from django.test import TestCase
-from django.urls import reverse
-from rest_framework.test import APIClient
-from rest_framework import status
-
-from apps.cv.models import CV, Header, BodySection
-
-
 class CvModelTests(TestCase):
 
     def setUp(self):
