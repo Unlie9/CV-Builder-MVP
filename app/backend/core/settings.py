@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
 
-
     'apps.base',
+    'apps.audit',
     'apps.cv',
     
 ]
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.audit.middleware.AuditLogsMiddleware'
 ]
 
 ROOT_URLCONF = 'core.urls'
