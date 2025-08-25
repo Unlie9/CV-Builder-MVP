@@ -94,3 +94,32 @@ body {
 </div>
 {% endblock content %}
 
+
+{% block javascripts %}
+
+
+<script>
+
+function HtmlToPdf() {
+  const cv_card = document.getElementById('id_cv_card')
+  const options = getCvPdfOptions()
+
+  html2pdf().set(options).from(cv_card).save();
+}
+
+function getCvPdfOptions() {
+    const options = {
+      filename: 'my-document.pdf',
+      margin: 1,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' },
+      margin: [0, 0, 0, 0]
+    };
+
+    return options
+}
+
+</script>
+
+{% endblock javascripts %}
