@@ -1,7 +1,7 @@
 from django.contrib import admin
-from apps.audit.models import Audit
+from apps.audit.models import RequestLog
 
-@admin.register(Audit)
+@admin.register(RequestLog)
 class AuditAdmin(admin.ModelAdmin):
     list_display = (
       "user",

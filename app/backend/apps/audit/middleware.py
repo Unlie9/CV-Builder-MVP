@@ -1,5 +1,5 @@
 import time
-from apps.audit.models import Audit
+from apps.audit.models import RequestLog
 from django.http import HttpResponseServerError
 
 
@@ -12,8 +12,9 @@ class AuditLogsMiddleware:
 
     start_time = time.time()
 
-    audit = Audit.objects.create(
+    request_log = RequestLog.objects.create(
       http_method=request.method,
+      status=200,
       ip_address=request.META.get('REMOTE_ADDR'),
       path=request.path,
       user_id=request.user.id
@@ -21,14 +22,14 @@ class AuditLogsMiddleware:
 
     try:
         response = self._get_response(request)
-        audit.status = response.status_code
+        request_log.status = response.status_code
     except Exception:
-        audit.status = 500
+        request_log.status = 500
         response = HttpResponseServerError("Internal Server Error")
         raise
     finally:
-        audit.duration = str(time.time() - start_time)
-        audit.save()
+        request_log.duration = str(time.time() - start_time)
+        request_log.save()
 
     return response
 
