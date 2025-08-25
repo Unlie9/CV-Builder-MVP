@@ -100,15 +100,15 @@ tbody tr:last-child td {
     </thead>
     <tbody>
       {% for log in object_list %}
-      <tr>
-        <td>{{ log.http_method }}</td>
-        <td>{{ log.status }}</td>
-        <td>{{ log.path }}</td>
-        <td>{{ log.ip_address }}</td>
-        <td>{{ log.duration|default_if_none:''|slice:":8" }}</td>
-        <td>{{ log.created_at }}</td>
-        <td>{{ log.user|default_if_none:'Anonymous' }}</td>
-      </tr>
+        <tr>
+          <td>{{ log.http_method }}</td>
+          <td>{{ log.status }}</td>
+          <td>{{ log.path }}</td>
+          <td>{{ log.ip_address }}</td>
+          <td>{{ log.duration|default_if_none:''|slice:":8" }}</td>
+          <td>{{ log.created_at }}</td>
+          <td>{{ log.user|default_if_none:'Anonymous' }}</td>
+        </tr>
       {% endfor %}
     </tbody>
   </table>
