@@ -20,5 +20,3 @@ class CvViewSet(viewsets.ModelViewSet):
   model = CV
   queryset = CV.objects.select_related('header').prefetch_related('body_sections').all()
   serializer_class = CvSerializer
-
-
