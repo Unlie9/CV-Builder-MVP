@@ -48,13 +48,15 @@
 
 {% block content %}
 <div class="cv-container">
-  {% for cv in queryset %}
+  {% for cv in object_list %}
   <a class="cv-detail-link" href="{% url 'cv:cv-detail' cv.id %}">
     <div class="cv-card">
       <div class="cv-title">{{ cv.filename }}</div>
       <div class="cv-meta text-center">{{ cv.header.full_name }}</div>
-      <div class="cv-meta mt-3">Created: {{ cv.created_at|date:"Y-m-d" }}</div>
-      <div class="cv-meta">Created: {{ cv.created_at|date:"Y-m-d" }}</div>
+
+
+      <div class="cv-meta mt-3">{{ cv.header.position }}</div>
+      <div class="cv-meta">{{ cv.header.linkedin_url }}</div>
       <div class="cv-meta">Created: {{ cv.created_at|date:"Y-m-d" }}</div>
     </div>
   </a>

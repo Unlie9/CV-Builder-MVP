@@ -9,7 +9,7 @@ from apps.cv.models import (
 
 @admin.register(CV)
 class CVAdmin(admin.ModelAdmin):
-    list_display = ("filename", "user", "is_active", "created_at", "updated_at")
+    list_display = ("filename", "is_active", "created_at", "updated_at")
     list_filter = ("is_active", "created_at")
     search_fields = ("filename", "user__username")
 
