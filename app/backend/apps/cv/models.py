@@ -46,13 +46,9 @@ class CV(BaseModel):
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   filename = models.CharField(max_length=48, default="", blank=True, verbose_name='File name')
   header = models.OneToOneField(Header, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Header', help_text='Header of cv page')
-  user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='cv_files')
 
   def __str__(self) -> str:
     return self.filename
-  
-  def __repr__(self) -> str:
-    return f"Cv of user: {self.user}"
   
   class Meta:
     db_table = "cv"
