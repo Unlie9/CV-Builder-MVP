@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def settings_view(request):
+  template_name = 'settings/main.html'
+  return render(request=request, template_name=template_name)

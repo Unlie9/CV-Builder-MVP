@@ -1,0 +1,76 @@
+{% extends 'layouts/base.html' %}
+
+{% block stylesheets %}
+<style>
+
+  .settings-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #5d87d0;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #5d87d0;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="settings-container">
+  <h1>Settings</h1>
+  
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Debug: {{ DEBUG }}</div>
+    </div>
+
+    <div class="card">
+     <div class="card-title">LANGUAGE_CODE: {{ LANGUAGE_CODE }}</div>
+    </div>
+
+    <div class="card">
+     <div class="card-title">TIME_ZONE: {{ TIME_ZONE }}</div>
+    </div>
+
+    <div class="card">
+     <div class="card-title">USE_I18N: {{ USE_I18N }}</div>
+    </div>
+    
+    <div class="card">
+     <div class="card-title">USE_TZ: {{ USE_TZ }}</div>
+    </div>
+
+  </div>
+</div>
+{% endblock content %}
