@@ -8,4 +8,4 @@ class RequestLogListView(generic.ListView):
   model = RequestLog
   queryset = RequestLog.objects.all().order_by('-id')
   template_name = "request_logs/list.html"
-  paginate_by = 11
+  paginate_by = 10
