@@ -1,5 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
+from rest_framework.test import APIClient
+from rest_framework import status
 
 from apps.cv.models import (
     CV, 
