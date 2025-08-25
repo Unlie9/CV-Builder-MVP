@@ -21,12 +21,12 @@ class Header(BaseModel):
   full_name = models.CharField(max_length=128, blank=True)
   position = models.CharField(max_length=128, blank=True)
   linkedin_url = models.URLField(max_length=255, blank=True)
-
-  def __str__(self) -> str:
-    return self.full_name
   
   class Meta:
     db_table = "header"
+  
+  def __str__(self) -> str:
+    return self.full_name
 
 
 class CV(BaseModel):
@@ -53,6 +53,7 @@ class CV(BaseModel):
   class Meta:
     db_table = "cv"
     ordering = ['-updated_at']
+  
 
 
 class BodySection(BaseModel):
@@ -77,3 +78,6 @@ class BodySection(BaseModel):
   class Meta:
     db_table = "body_section"
     ordering = ['created_at']
+
+  # def update(self, **kwargs):
+  #   ...

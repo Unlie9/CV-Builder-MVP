@@ -22,3 +22,8 @@ class BaseModel(models.Model):
     abstract = True
     ordering = ['-created_at']
 
+  def update(self, **kwargs):
+    for attr, value in kwargs.items():
+        setattr(self, attr, value)
+    self.save()
+
