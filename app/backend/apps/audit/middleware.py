@@ -10,17 +10,15 @@ class AuditLogsMiddleware:
     self._get_response = get_response
 
   def __call__(self, request):
-
     start_time = time.time()
-
+    
     request_log = RequestLog.objects.create(
       http_method=request.method,
       status=200,
-      ip_address=request.META.get('REMOTE_ADDR'),
+      ip_address=self.get_client_ip(request),
       path=request.path,
       user_id=request.user.id
     )
-
     try:
         response = self._get_response(request)
         request_log.status = response.status_code
@@ -33,4 +31,15 @@ class AuditLogsMiddleware:
         request_log.save()
 
     return response
+  
+  def get_client_ip(self, request):
+    ip = request.META.get('HTTP_X_REAL_IP') 
+    if not ip:
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+
+    return ip
 
