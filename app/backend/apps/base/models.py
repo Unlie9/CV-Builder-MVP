@@ -20,7 +20,7 @@ class BaseModel(models.Model):
 
   class Meta:
     abstract = True
-    ordering = ['-created_at']
+    ordering = '-created_at'
 
   def update(self, **kwargs):
     for attr, value in kwargs.items():

@@ -1,14 +1,17 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 
 BASE_DIR = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-SECRET_KEY = 'django-insecure-h9wyptmqa#v7&qmw9jfj(4$nslgzcrl(rcu!l$zak3jqxfa$1c'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-DEBUG = True
+DEBUG = bool(os.getenv('DEBUG', default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(",")
+CSRF_TRUSTED_ORIGINS = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,8 +61,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': f"django.db.backends.{os.getenv('DB_ENGINE')}",
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT"),
     }
 }
 
