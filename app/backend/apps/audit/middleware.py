@@ -1,6 +1,7 @@
 import time
 from apps.audit.models import RequestLog
 from django.http import HttpResponseServerError
+from django.contrib.auth.models import User
 
 
 class AuditLogsMiddleware:

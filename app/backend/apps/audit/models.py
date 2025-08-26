@@ -8,7 +8,7 @@ class RequestLog(BaseModel):
   status = models.IntegerField(null=True)
   path = models.CharField(max_length=128)
   ip_address = models.CharField(max_length=128)
-  duration = models.CharField(null=True)
+  duration = models.CharField(max_length=128, null=True)
   user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
   class Meta:
