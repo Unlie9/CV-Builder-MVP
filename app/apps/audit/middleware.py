@@ -11,6 +11,8 @@ class AuditLogsMiddleware:
   def __call__(self, request):
     start_time = time.time()
 
+    print("AAAAA")
+
     request_log = RequestLog.objects.create(
       http_method=request.method,
       status=200,
